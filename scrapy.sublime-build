@@ -1,0 +1,5 @@
+{
+"cmd": ["scrapy","runspider","$file"],
+"env": { "PYTHONIOENCODING": "utf8" },
+}
+

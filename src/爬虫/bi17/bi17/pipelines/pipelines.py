@@ -6,8 +6,18 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
+import json
 
+class BIPipeline(object):
+	def __init__(self):
+		pass
 
-class Bi17Pipeline:
-    def process_item(self, item, spider):
-        return item
+	def open_spider(self,spider):
+		pass
+		
+
+	def process_item(self,item,spider):
+		return item
+
+	def close_spider(self,spider):
+		pass
