@@ -23,28 +23,24 @@ class DoubanImgDownloadPipeline(ImagesPipeline):
     }
 
 
-    # def file_path(self, request, response=None, info=None):
-        
-    #     path = 'full/'+self.folder+'/'+ str(time.time()) + request.url[-4:]
-    #     print("+++++++++++++++++++folder:");print(path)
-    #     return path
-
+    #保存图片文件的路径
     def file_path(self, request, response=None, info=None, *, item=None):
         # 这个方法是在图片将要被存储的时候调用，来获取这个图片存储的路径
         path=super(DoubanImgDownloadPipeline, self).file_path(request,response,info)
-        category=request.item.get('标题')[0]
-        print("+++++++++++++++++++++++++++++++++++file_path:")
-        image_path = "full/"+category+"/"+request.name
+        folder=request.item.get('标题')
+        image_path = "full/"+folder+"/"+request.name  #实际路径== settings.py 中的 IMAGES_STORE/image_path
         print(image_path)
         return image_path
 
+    #每个图片对应的request
     def get_media_requests(self, item, info):
-        i = 0
+        #文件名使用数字排序
+        imagename = 1
         for image_url in item['大图']:
-            i+=1
+            imagename+=1
             self.default_headers['referer'] = image_url
-            #self.folder = item["标题"][0]
             myrequest = Request(image_url, headers=self.default_headers)
+            #传递参数
             myrequest.item = item
-            myrequest.name = str(i)+".jpg"
+            myrequest.name = str(imagename)+".jpg"
             yield myrequest

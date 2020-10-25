@@ -13,4 +13,6 @@ class bi17Item(scrapy.Item):
     档口 = scrapy.Field()
     详情 = scrapy.Field()
     标题 = scrapy.Field()
+    信息 = scrapy.Field()
+    url = scrapy.Field()
     pass

@@ -1,4 +1,4 @@
-# Scrapy settings for bi17 project
+# Scrapy settings for jd project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,17 +7,17 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'bi17'
+BOT_NAME = 'jd'
 
-SPIDER_MODULES = ['bi17.spiders']
-NEWSPIDER_MODULE = 'bi17.spiders'
+SPIDER_MODULES = ['jd.spiders']
+NEWSPIDER_MODULE = 'jd.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'bi17 (+http://www.yourdomain.com)'
+#USER_AGENT = 'jd (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -45,13 +45,13 @@ COOKIES_ENABLED = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'bi17.middlewares.Bi17SpiderMiddleware': 543,
+#    'jd.middlewares.JdSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'bi17.middlewares.Bi17DownloaderMiddleware': 543,
+#    'jd.middlewares.JdDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,11 +63,8 @@ COOKIES_ENABLED = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-#   'bi17.pipelines.pipelines.BIPipeline': 300,
-   'bi17.pipelines.imagepipelines.DoubanImgDownloadPipeline': 1,
-   'bi17.pipelines.datapipelines.BITxtPipeline': 100,
+    'jd.pipelines.pipelines.JdPipeline': 300,
 }
-IMAGES_STORE =  'F:/images'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
