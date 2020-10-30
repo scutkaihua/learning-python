@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -48,12 +49,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 ROOT_URLCONF = 'myproject.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +70,11 @@ TEMPLATES = [
     },
 ]
 
+
+# Add for vuejs
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "appfront/dist/static"),
+]
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database
@@ -74,10 +83,10 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myproject',
+        'NAME': 'helloworld',
         'USER': 'kaihua',
         'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
     }
 }
 
