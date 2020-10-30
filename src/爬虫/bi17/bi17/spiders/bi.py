@@ -11,7 +11,7 @@ class BISpider(scrapy.Spider):
 	allow_domains = ['https://xt.17zwd.com']
 	start_urls = []	
 	def __init__(self):
-		f = open("F:/urls.txt","r")
+		f = open("F:/python/learning-python/src/爬虫/bi17/urls.txt","r")
 		lines = f.readlines()
 		for l in lines:
 				self.start_urls.append(l)

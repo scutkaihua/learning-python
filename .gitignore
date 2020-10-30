@@ -2,3 +2,5 @@
 /src/爬虫/bi17/bi17/pipelines/__pycache__/*.pyc
 /src/爬虫/bi17/bi17/spiders/__pycache__/*.pyc
 /src/爬虫/bi17/images/full/502秋季新款短款牛仔外套上衣2个色限价109第一套图/*.jpg
+/src/图形处理/__pycache__/*.pyc
+*.pyc
